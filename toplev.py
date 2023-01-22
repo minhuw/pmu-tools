@@ -1939,8 +1939,10 @@ def print_check_keys(runner, res, rev, valstats, out, interval, env, rlist):
     if res and all([sum(res[k]) == 0.0 and len(res[k]) > 0 for k in res.keys()]) and cpu.cpu == cpu.realcpu:
         if args.subset:
             return
+
         if runner.pmu == "cpu":
-            sys.exit("All measured values 0. perf broken?")
+            print("All measured values 0. perf broken?")
+            return
         else:
             if not args.quiet:
                 print("Measured values for %s all 0" % runner_name(runner), file=sys.stderr)
