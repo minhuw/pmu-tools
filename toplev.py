@@ -1818,7 +1818,8 @@ def print_check_keys(runner, res, rev, valstats, out, interval, env):
         if args.subset:
             return
         if len(runner_list) == 1:
-            sys.exit("All measured values 0. perf broken?")
+            print("All measured values 0. perf broken?")
+            return
         else:
             if not args.quiet:
                 print("Measured values for %s all 0" % runner_name(runner), file=sys.stderr)
